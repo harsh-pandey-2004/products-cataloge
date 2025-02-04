@@ -8,12 +8,12 @@ const Filters = ({ onFilterChange }) => {
     e.preventDefault();
     onFilterChange({
       search: searchTerm,
-      maxPrice: priceRange
+      maxPrice: priceRange,
     });
   };
 
   return (
-    <div className=" p-6 rounded-xl  mb-8">
+    <div className="p-6 rounded-xl mb-8 ">
       <h2 className="text-xl font-bold mb-4 text-gray-800">Filters</h2>
       <form onSubmit={handleSubmit} className="space-y-6">
         <div>
@@ -56,17 +56,24 @@ const Filters = ({ onFilterChange }) => {
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Max Price: ${priceRange}
           </label>
-          <input
-            type="range"
-            min="0"
-            max="20"
-            value={priceRange}
-            onChange={(e) => setPriceRange(parseInt(e.target.value))}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
-          />
+          <div className="relative">
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={priceRange}
+              onChange={(e) => setPriceRange(parseInt(e.target.value))}
+              className="w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer transition-all"
+              style={{
+                background: `linear-gradient(to right, #3b82f6 ${priceRange}%, #d1d5db ${priceRange}%)`,
+              }}
+            />
+           
+           
+          </div>
           <div className="flex justify-between text-sm text-gray-500 mt-1">
             <span>$0</span>
-            <span>$20</span>
+            <span>$100</span>
           </div>
         </div>
 
