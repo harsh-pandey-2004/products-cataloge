@@ -13,73 +13,62 @@ const Filters = ({ onFilterChange }) => {
   };
 
   return (
-    <div className="p-6 rounded-xl mb-8 ">
-      <h2 className="text-xl font-bold mb-4 text-gray-800">Filters</h2>
-      <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Search Products
-          </label>
-          <div className="flex space-x-2">
-            <div className="relative flex-1">
-              <input
-                type="text"
-                placeholder="Search products..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all pl-10"
+    <div className="p-4 rounded-xl mb-4 bg-white shadow-md">
+      <h2 className="text-lg font-semibold mb-3 text-gray-800">Filters</h2>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <div className="flex flex-col">
+          <label className="text-sm text-gray-700 mb-2">Search Products</label>
+          <div className="relative flex items-center space-x-2 justify-center">
+            <div className="w-full relative">
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm outline-none"
+            />
+            <svg
+              className="absolute right-2 top-2.5 h-4 w-4 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
               />
-              <svg
-                className="absolute left-3 top-3.5 h-5 w-5 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
+            </svg>
             </div>
             <button
-              type="submit"
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center"
-            >
-              Search
-            </button>
+            type="submit"
+            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 text-sm "
+          >
+            Search
+          </button>
           </div>
+       
         </div>
 
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Max Price: ${priceRange}
-          </label>
-          <div className="relative">
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={priceRange}
-              onChange={(e) => setPriceRange(parseInt(e.target.value))}
-              className="w-full h-2 bg-gray-200 rounded-full appearance-none cursor-pointer transition-all"
-              style={{
-                background: `linear-gradient(to right, #3b82f6 ${priceRange}%, #d1d5db ${priceRange}%)`,
-              }}
-            />
-           
-           
-          </div>
-          <div className="flex justify-between text-sm text-gray-500 mt-1">
-            <span>$0</span>
-            <span>$100</span>
-          </div>
+        <div className="flex flex-col">
+          <label className="text-sm text-gray-700 mb-2">Max Price: ${priceRange}</label>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={priceRange}
+            onChange={(e) => setPriceRange(parseInt(e.target.value))}
+            className="w-full h-1 bg-gray-200 rounded-full appearance-none cursor-pointer transition-all"
+            style={{
+              background: `linear-gradient(to right, #3b82f6 ${priceRange}%, #d1d5db ${priceRange}%)`,
+            }}
+          />
         </div>
 
         <button
           type="submit"
-          className="w-full py-2 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
+          className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 text-sm mt-2"
         >
           Apply Filters
         </button>
