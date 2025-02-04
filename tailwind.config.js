@@ -28,7 +28,5 @@ export default {
         'link-hover': '#0056b3', // Hover color for links (darker blue)
       },
     },
-  },
-  plugins: [
-    require('tailwind-scrollbar'), // Add the scrollbar plugin
-  ],};
+  }
+ ,};
